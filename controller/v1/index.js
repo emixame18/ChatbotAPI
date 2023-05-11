@@ -1,52 +1,27 @@
-const dialogController = {
-    home: (req, res) => {
-        res.send('Hello World!')
+const dialogs= require("../../dialog.json")
+
+const dialogcontroller ={
+    home :  (req, res) => {
+        res.send('Hello World !')
     },
-    dialogs: (req, res) => {
-        const dialogs = [
-            {
-                question: "salut",
-                answer: "coucou"
-            },
-            {
-                question: "ça va ?",
-                answer: "bien et toi ?"
-            },
-            {
-                question: "quel age as-tu ?",
-                answer: "22 ans"
-            }
-        ]
-        res.status(200).json({ message: dialogs })
+
+    test :  (req, res) => {
+        res.send('Hello Test !')
     },
-    dialogp: (req, res) => { 
-        console.log(req.body.question)
-        let matchFound=false;
-        const dialogs=[
-            {
-                question : "salut",
-                answer : "coucou"
-            },
-            {
-                question : "ca va?",
-                answer : "oui et toi?"
-            },
-            {
-                question : "quel age as tu?",
-                answer : "22 ans"
-            }
-        ]
-        dialogs.forEach(dialog =>{
-            if(dialog.question === req.body.question){
-                matchFound = true;
-                res.status(200).json({Response : dialog.answer})
-                return
-            }
-        })
-        if(!matchFound){
-            res.status(200).json({message: "pas de réponse a vous apporter"})
-        }
+
+    findAllQuestion: (req, res)=>
+    {
+        const questions = dialogs.map(({id, question}) => ({id, question}))
+        res.json(questions)
+    },
+
+    answer: (req, res)=>{
+        const dialog = dialogs.find(dialog => dialog.id === parseInt(req.params.id))
+        console.log(req.params.id)
+        if(!dialog) return res.status(404).send()
+        res.json(dialog)
     }
+
 }
 
-module.exports = dialogController
+module.exports=dialogcontroller

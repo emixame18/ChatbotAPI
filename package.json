@@ -1,24 +1,30 @@
 {
   "name": "chatbotback",
   "version": "1.0.0",
-  "description": "## version 1",
+  "description": "projet hébergé sur render.com pour un projet de chatbot",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/HECQUETquentin/chatbotback.git"
+    "start": "nodemon node server.js"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/HECQUETquentin/chatbotback/issues"
-  },
-  "homepage": "https://github.com/HECQUETquentin/chatbotback#readme",
   "dependencies": {
     "express": "^4.18.2",
-    "nodemon": "^2.0.22"
-  }
+    "nodemon": "^2.0.22",
+    "swagger": "^0.7.5",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^4.6.3"
+  },
+  "devDependencies": {
+    "mocha": "^2.5.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emixame18/ChatbotAPI.git"
+  },
+  "bugs": {
+    "url": "https://github.com/emixame18/ChatbotAPI/issues"
+  },
+  "homepage": "https://github.com/emixame18/ChatbotAPI#readme"
 }

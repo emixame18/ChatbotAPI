@@ -1,12 +1,5 @@
-# chatbot-backend
+#API CHATBOT
+## projet st jo
+projet hébergé sur render.com pour un projet de chatbot
 
-## version 1
-
----
-
-- `/dialog/questions`
-
-    > Méthode GET : Retourne la liste des questions ainsi que son identifiant.
-{ id : number, question: string }
-
-- `/dialogs`
+[lien api](https://chatbot-api-jnss.onrender.com)
