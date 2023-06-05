@@ -1,6 +1,19 @@
 const express = require('express')
 const app = express()
-const port = 3000
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+  host: "sql7.freesqldatabase.com",
+  user: "sql7623777",
+  password: "wc7vSQsyap"
+});
+
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+});
+/*const mongoose =require("mongoose")
+const port = 3000*/
 
 // Swagger
 const swaggerJsDoc = require('swagger-jsdoc');
@@ -29,6 +42,12 @@ app.get('*', (req, res) => {
     // res.status(404).json({message: 'Not found'}) bonne pratique
     res.sendFile(__dirname + '/view/404.html')
 })
+
+
+   /*  mongoose.connect('mongodb+srv://admin:admin@stjo.n7hiept.mongodb.net/')
+     .then(console.log("connected to database"))
+     .catch((error)=>{console.log("error")});*/
+  
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`)
